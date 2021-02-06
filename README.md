@@ -1,7 +1,4 @@
-## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
+## Humane Social media
 
 ## General info
 Social Humane Media is all about creating a social media platform that doesn't make its users addicted to it.
