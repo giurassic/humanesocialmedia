@@ -1,5 +1,3 @@
-## Humane Social media
-
 ## General info
 Social Humane Media is all about creating a social media platform that doesn't make its users addicted to it.
 I created this project primarily to learn ruby on rails for frontend and backend web development.
