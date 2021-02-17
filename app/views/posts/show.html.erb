@@ -20,5 +20,13 @@
   <%= @post.location %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <br>
+  <%= image_tag(@post.image, style:"width:200px") %>
+</p>
+
+
+
 <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-secondary" %> 
 <%= link_to 'Back', posts_path, class:"btn btn-secondary" %>

@@ -2,32 +2,29 @@
 
 <h1>Explore Page</h1>
 
-<table class="table table-hover">
-  <thead>
-    <tr class="table-dark">
-      <th>Tweet</th>
-      <th>Username</th>
-      <th>Date</th>
-      <th>Location</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.tweet %></td>
-        <td><%= post.username %></td>
-        <td><%= post.date %></td>
-        <td><%= post.location %></td>
-        <td><%= link_to 'Show', post, class:"btn btn-outline-success" %></td>
-        <td><%= link_to 'Edit', edit_post_path(post), class:"btn btn-outline-warning" %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger' %></td>
-      </tr>
-    <% end %>
   </tbody>
 </table>
-
+<div>
+  <% @posts.each do |post| %>
+    <div class="bg-white border mt-2">
+                    <div>
+                        <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                            <div class="d-flex flex-row align-items-center feed-text px-2"><img class="rounded-circle" src="https://i.imgur.com/aoKusnD.jpg" width="45">
+                                <div class="d-flex flex-column flex-wrap ml-2"><span class="font-weight-bold"><%= post.username %></span><span class="text-black-50 time"><%= post.date %> from <%= post.location %></span></div>
+                            </div>
+                            <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+                        </div>
+                    </div>
+                    <div class="p-2 px-3"><span><%= post.tweet %></span></div>
+                    <div> <%= image_tag(post.image, style:"width:200px") %> </div>
+                    <div>
+                      <%= link_to 'Show', post, class:"btn btn-outline-success" %>
+                      <%= link_to 'Edit', edit_post_path(post), class:"btn btn-outline-warning" %>
+                      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger' %>
+                      </div>
+                </div>
+  <% end %>
+</div>
 <br>
 
 <%= link_to 'New Post', new_post_path, class:"btn btn-secondary" %>
