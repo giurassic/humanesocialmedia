@@ -10,25 +10,20 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :tweet %>
-    <%= form.text_field :tweet %>
+  <div class="field row mb-3">
+    <%= form.text_field :tweet, class:"form-control", placeholder:"tweet" %>
   </div>
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
+  <div class="field row mb-3">
+    <%= form.text_field :username, class:"form-control", placeholder:"username" %>
   </div>
 
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.text_field :date %>
+  <div class="field row mb-3">
+    <%= form.text_field :date, class:"form-control", placeholder:"date" %>
   </div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+  <div class="field row mb-3">
+    <%= form.text_field :location, class:"form-control", placeholder:"location" %>
   </div>
 
   <div class="actions">
