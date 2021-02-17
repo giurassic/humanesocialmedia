@@ -7,7 +7,8 @@ It is also a great opportunity for me to learn how to design a proper website an
 Project is created with:
 * Rails version: 6.1.1
 * Ruby version: 2.7.2p137
-* SQlite3 version: 1.4
+* SQlite3 version: 1.4 (for development)
+* PostgreSQL version : 1.2.3 (for production)
 * Bootstrap version: 5.0
 	
 ## Setup
