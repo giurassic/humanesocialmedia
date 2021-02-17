@@ -12,7 +12,8 @@ Project is created with:
 * Bootstrap version: 5.0
 	
 ## Setup
-To run this project you need ruby on rails and its dependancies installed
+To run this project you need ruby on rails and its dependancies installed.
+
 Then run:
 ```
 $ cd [to folder]
