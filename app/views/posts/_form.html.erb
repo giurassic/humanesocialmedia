@@ -26,6 +26,9 @@
     <%= form.text_field :location, class:"form-control", placeholder:"location" %>
   </div class="field row mb-3">
   <div class="field row mb-3">
+    <%= form.number_field :user_id, id: :post_user_id, class:"form-control", value:current_user.id, type: :hidden %> <!-- Using the devise gem to find out the active users ID -->
+  </div class="field row mb-3">
+  <div class="field row mb-3">
     <%= form.file_field :image, class:"form-control"%>
   </div>
   <div class="actions">
