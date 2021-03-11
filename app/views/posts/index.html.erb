@@ -1,24 +1,35 @@
 <h1>Explore Page</h1>
-<div>
-  <% @posts.each do |post| %>
-    <div class="bg-white border mt-2">
-                    <div>
-                        <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
-                            <div class="d-flex flex-row align-items-center feed-text px-2"><img class="rounded-circle" src="https://i.imgur.com/aoKusnD.jpg" width="45">
-                                <div class="d-flex flex-column flex-wrap ml-2"><span class="font-weight-bold"><%= post.username %></span><span class="text-black-50 time"><%= post.date %> from <%= post.location %></span></div>
-                            </div>
-                            <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
-                        </div>
-                    </div>
-                    <div class="p-2 px-3"><span><%= post.tweet %></span></div>
-                    <div class="p-2 px-3"><span><%= image_tag(post.image, style:"width:200px") %></span></div>
-                    <div>
-                      <%= link_to 'Show', post, class:"btn btn-outline-success" %>
-                      <% if post.user == current_user %>
-                      <%= link_to 'Edit', edit_post_path(post), class:"btn btn-outline-warning" %>
-                      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger' %>
-                      <% end %>
-                    </div>
-                </div>
-  <% end %>
+<div class="container">
+  <div class="row">
+
+    <% @posts.each do |post| %>
+      <div class="col-xl-3 col-md-6 mb-4" >
+        <div class="card border-0 shadow">
+                      <div>
+                          <div class="card-body text-center">
+                              <div><!-- <img class="rounded-circle" src="https://i.imgur.com/aoKusnD.jpg" width="45"> might use this later if i want profile pics-->
+                                  <div class="d-flex flex-column flex-wrap ml-2">
+                                    <div class="card-title mb-0">
+                                      <span><%= post.tweet %></span>
+                                    </div>
+                                    <div class="card-img-top">
+                                      <span><%= image_tag(post.image, :size => "200x200") %></span>
+                                    </div>
+                                    <h7 class="card-title mb-0"><%= post.username %></h7>        
+                                    <span class="card-text text-black-50"><%= post.date %> from <%= post.location %></span>
+                                  </div>
+                              </div>
+                              <div id="SED">
+                                <!-- <%= link_to 'Show', post, class:"btn btn-outline-success" %> -->
+                                <% if post.user == current_user %>
+                                <%= link_to 'Edit', edit_post_path(post), class:"btn btn-outline-warning" %>
+                                <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger' %>
+                                <% end %>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  </div> 
+    <% end %>
 </div>
+</div> 
