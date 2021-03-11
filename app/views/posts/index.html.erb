@@ -11,14 +11,14 @@
                         </div>
                     </div>
                     <div class="p-2 px-3"><span><%= post.tweet %></span></div>
-                    
+                    <div class="p-2 px-3"><span><%= image_tag(post.image, style:"width:200px") %></span></div>
                     <div>
                       <%= link_to 'Show', post, class:"btn btn-outline-success" %>
                       <% if post.user == current_user %>
                       <%= link_to 'Edit', edit_post_path(post), class:"btn btn-outline-warning" %>
                       <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger' %>
                       <% end %>
-                      </div>
+                    </div>
                 </div>
   <% end %>
 </div>
