@@ -1,37 +1,44 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Create Post</h5>
+          <%= form_with(model: post) do |form| %>
+          <% if post.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+            <ul>
+              <% post.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
+          <div class="field row mb-3">
+            <%= form.text_field :tweet, class:"form-control", placeholder:"tweet" %>
+          </div>
+          <div class="field row mb-3">
+            <%= form.text_field :username, class:"form-control", placeholder:"username" %>
+          </div>
+          <div class="field row mb-3">
+            <%= form.text_field :date, class:"form-control", placeholder:"date" %>
+          </div>
+          <div class="field row mb-3">
+            <%= form.text_field :location, class:"form-control", placeholder:"location" %>
+          </div class="field row mb-3">
+          <div>
+            <%= form.number_field :user_id, id: :post_user_id, class:"form-control", value:current_user.id, type: :hidden %> <!-- Using the devise gem to find out the active users ID -->
+          </div>
+          <div class="field row mb-3">
+            <%= form.file_field :image, class:"form-control"%>
+          </div>
+          <div class="actions">
+            <%= form.submit %>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-  <div class="field row mb-3">
-    <%= form.text_field :tweet, class:"form-control", placeholder:"tweet" %>
   </div>
-
-  <div class="field row mb-3">
-    <%= form.text_field :username, class:"form-control", placeholder:"username" %>
-  </div>
-
-  <div class="field row mb-3">
-    <%= form.text_field :date, class:"form-control", placeholder:"date" %>
-  </div>
-
-  <div class="field row mb-3">
-    <%= form.text_field :location, class:"form-control", placeholder:"location" %>
-  </div class="field row mb-3">
-  <div>
-    <%= form.number_field :user_id, id: :post_user_id, class:"form-control", value:current_user.id, type: :hidden %> <!-- Using the devise gem to find out the active users ID -->
-  </div>
-  <div class="field row mb-3">
-    <%= form.file_field :image, class:"form-control"%>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
