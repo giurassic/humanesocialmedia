@@ -1,32 +1,34 @@
-<p>
-  <strong>Tweet:</strong>
-  <%= @post.tweet %>
-</p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @post.username %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @post.date %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @post.location %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <br>
-  <%= image_tag(@post.image, style:"width:200px") %>
-</p>
-
-
-<% if @post.user == current_user %>
-  <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-outline-warning" %>
-  <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger' %>
-<% end %>
-<%= link_to 'Back', posts_path, class:"btn btn-secondary" %>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-10 col-md-6 mb-4" >
+      <div class="card border-0 shadow">
+        <div>
+          <div class="card-body text-center">
+            <div><!-- <img class="rounded-circle" src="https://i.imgur.com/aoKusnD.jpg" width="45"> might use this later if i want profile pics-->
+            <div class="d-flex flex-column flex-wrap ml-2">
+              <div class="card-title mb-0">
+                <span><%= @post.tweet %></span>
+              </div>
+              <div class="card-img-top">
+                <span><%= image_tag(@post.image, style:"width:200px") %></span>
+              </div>
+              <% if @post.user == current_user %>
+              <h7 class="card-title mb-0">You</h7>
+              <% else %>
+              <h7 class="card-title mb-0"><%= @post.username %></h7>
+              <% end %>
+              <span class="card-text text-black-50"><%= @post.date %> from <%= @post.location %></span>
+              <% if @post.user == current_user %>
+              <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-outline-warning" %>
+              <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger' %>
+              <% end %>
+              <%= link_to 'Back', posts_path, class:"btn btn-secondary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
