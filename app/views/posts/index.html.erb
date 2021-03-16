@@ -11,15 +11,17 @@
               <div class="card-title mb-0">
                 <span><%= post.tweet %></span>
               </div>
+              <br>
               <div class="card-img-top">
-                <span><%= link_to( image_tag(post.image, :size => "200x200"),post) %></span>
+                <span><%= link_to(image_tag(post.image, :width=>250),post) %></span>
               </div>
+              <br>
               <% if post.user == current_user %>
               <h7 class="card-title mb-0">You</h7>
               <% else %>
               <h7 class="card-title mb-0"><%= post.username %></h7>
               <% end %>
-              <span class="card-text text-black-50"><%= post.date %> from <%= post.location %></span>
+              <span class="card-title mb-1"><%= post.date %> from <%= post.location %></span>
             </div>
           </div>
         </div>

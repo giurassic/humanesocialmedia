@@ -18,7 +18,7 @@
               <% else %>
               <h7 class="card-title mb-0"><%= @post.username %></h7>
               <% end %>
-              <span class="card-text text-black-50"><%= @post.date %> from <%= @post.location %></span>
+              <span class="card-title mb-0"><%= @post.date %> from <%= @post.location %></span>
               <% if @post.user == current_user %>
               <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-outline-warning" %>
               <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger' %>
