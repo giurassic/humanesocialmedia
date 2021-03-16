@@ -16,13 +16,13 @@
           </div>
           <% end %>
           <div class="field row mb-3">
-            <%= form.hidden_field :username, class:"form-control", placeholder:"Username", value:@current_user.email %>
+            <%= form.hidden_field :username, class:"form-control", placeholder:"Username", value:@current_user.email.split('@')[0] %>
           </div>
           <div class="field row mb-3">
             <%= form.text_field :tweet, class:"form-control", placeholder:"Tweet", :maxlength => 22 %>
           </div>
           <div class="field row mb-3">
-            <%= form.hidden_field :date, class:"form-control", placeholder:"date", value:Time.now.strftime("%m/%d/%Y")  %>
+            <%= form.hidden_field :date, class:"form-control", placeholder:"date", value:Time.now.strftime("%H:%M %m/%d/%Y")  %>
           </div>
           <div class="field row mb-3">
             <%= form.text_field :location, class:"form-control", placeholder:"location" %>
