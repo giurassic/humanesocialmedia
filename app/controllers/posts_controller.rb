@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy] #checks for correct user before edit/destroy/update
 
   # GET /posts or /posts.json
   def index
@@ -61,8 +61,8 @@ class PostsController < ApplicationController
   end
 
   def correct_user
-    @post = current_user.posts.find_by(id: params[:id])
-    redirect_to posts_path, notice: "Not authorized to edit" if @post.nil?
+    @post = current_user.posts.find_by(id: params[:id]) #is the user that posted the selected post the same as the one thats logged in ?
+    redirect_to posts_path, notice: "Not authorized to edit" if @post.nil? #if not dont authorize
   end
 
   private
